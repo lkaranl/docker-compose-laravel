@@ -33,7 +33,7 @@ services:
       # SERVICE_NAME: mysql
     volumes:
       ##- /root/Sgen/docker-compose/mysql:/docker-entrypoint-initdb.d/:ro
-      - /home/karan/Sgen/docker-compose/mysql:/docker-entrypoint-initdb.d/:ro
+      - /var/home/karan/Documentos/GitHub/docker-compose-laravel/docker-compose/mysql:/docker-entrypoint-initdb.d/:ro
     ports:
       - "9906:3306"
     expose:

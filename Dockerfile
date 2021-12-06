@@ -1,5 +1,6 @@
 FROM php:7.4-fpm
 
+
 # Arguments defined in docker-compose.yml
 ARG user
 ARG uid
@@ -12,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    unzip
+    unzip 
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -28,9 +29,10 @@ RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
+
 # Set working directory
 WORKDIR /var/www
 ADD . /var/www
-RUN chmod 777 /var/www/storage/logs/laravel.log
+#RUN chmod 777 /var/www/storage/logs/laravel.log
 
 USER $user
